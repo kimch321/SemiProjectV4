@@ -1,4 +1,5 @@
 <%@ page pageEncoding="utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="main">
     <div class="mt-5">
         <i class="fa-solid fa-users fa-2xl"> 회원가입 </i>
@@ -33,7 +34,7 @@
                         <label class="col-2 form-label text-danger text-end"
                                for="name">이름</label>
                         <div class="col-3 ">
-                            <input type="text" name="name" id="name" class="form-control border-danger bg-light" readonly>
+                            <input type="text" name="name" id="name" readonly class="form-control border-danger bg-light" value="${mb.name}">
                         </div>
                     </div>
                 </div>
@@ -43,12 +44,12 @@
                 <div class="col-11 offset-1 mb-3 align-items-center">
                     <div class="row">
                         <label class="col-2 form-label text-danger text-end"
-                               for="jumin1">주민번호</label>
+                               for="jumin1a">주민번호</label>
                         <div class="col-3">
-                            <input type="text" name="jumin1" id="jumin1" class="form-control border-danger bg-light" readonly>
+                            <input type="text" name="jumin1" id="jumin1a" class="form-control border-danger bg-light" value="${mb.jumin1}" readonly>
                         </div>
                         <div class="col-3">
-                            <input type="text" name="jumin2" id="jumin2" class="form-control border-danger bg-light" readonly>
+                            <input type="text" name="jumin2" id="jumin2a" class="form-control border-danger bg-light" value="${mb.jumin2}" readonly>
                         </div>
                     </div>
                 </div>
@@ -58,9 +59,9 @@
                 <div class="col-11 offset-1 mb-3 align-items-center">
                     <div class="row">
                         <label class="col-2 form-label text-danger text-end"
-                               for="id">아이디</label>
+                               for="userid">아이디</label>
                         <div class="col-3">
-                            <input type="text" name="id" id="id" class="form-control border-danger">
+                            <input type="text" name="userid" id="userid" class="form-control border-danger">
                         </div>
                         <div class="col-auto">
                             <span id="uidmsg" class="form-text">6~16 자의 영문 소문자, 숫자와 특수기호(_)만 사용할 수 있습니다.</span>
@@ -122,9 +123,9 @@
                 <div class="col-11 offset-1 mb-3 align-items-center">
                     <div class="row">
                         <label class="col-2 form-label text-danger text-end"
-                               for="addr">나머지 주소</label>
+                               for="addr1">나머지 주소</label>
                         <div class="col-4">
-                            <input type="text" name="addr" id="addr" class="form-control border-danger bg-light">
+                            <input type="text" name="addr1" id="addr1" class="form-control border-danger bg-light" readonly>
                         </div>
                         <div class="col-4">
                             <input type="text" name="addr2" id="addr2" class="form-control border-danger">
@@ -202,10 +203,10 @@
                 <div class="col text-center">
                     <hr class="w-75 mx-auto">
                     <button type="button"
-                            class="btn btn-primary" id="check2btn">
+                            class="btn btn-primary" id="joinbtn">
                         <i class="fas fa-check-circle"></i> 입력완료</button>
                     <button type="button"
-                            class="btn btn-danger" id="cancle2btn">
+                            class="btn btn-danger" id="cancelbtn">
                         <i class="fas fa-times-circle"></i> 입력취소</button>
                 </div>
             </div>

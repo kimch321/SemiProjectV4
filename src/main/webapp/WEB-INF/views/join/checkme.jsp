@@ -114,7 +114,7 @@
     </div>
     <div class="card card-body bg-light mt-5 mx-3">
         <h3 class="mb-5">실명확인 회원가입</h3>
-        <form action="checkfrm2" name="checkfrm2">
+        <form id="checkfrm2" name="checkfrm2">
 
             <div class="row">
                 <div class="col-5 offset-1">
