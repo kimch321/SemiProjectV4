@@ -8,9 +8,11 @@
     <Loggers>
 
         <Logger name="org.springframework" level="info"/>
+
         <Logger name="org.springframework.jdbc.core" level="trace" />
         <Logger name="org.mybatis.*" level="debug" />
-        <Logger name="kimch321.spring4.sungjukv6" level="info"/>
+
+        <Logger name="kimch321.spring4.semiprojectv4" level="info"/>
 
         <Root level="debug">
             <AppenderRef ref="Console"/>
