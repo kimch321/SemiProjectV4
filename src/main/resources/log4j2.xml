@@ -14,7 +14,7 @@
 
         <Logger name="kimch321.spring4.semiprojectv4" level="info"/>
 
-        <Root level="debug">
+        <Root level="info">
             <AppenderRef ref="Console"/>
         </Root>
     </Loggers>
