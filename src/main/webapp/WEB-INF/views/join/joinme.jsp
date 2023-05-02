@@ -244,7 +244,11 @@
                             </div>
                         </div>
                         <div class="row">
-
+                            <div class="col-8 offset-2">
+                                <select class="form-select" id="addrlist"
+                                        name="addrlist" size="10">
+                                </select>
+                            </div>
                         </div>
                     </form>
                 </div>
