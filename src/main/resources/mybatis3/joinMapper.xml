@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="join">
+
+    <select id="findZipcode" statementType="PREPARED"
+            parameterType="String"
+            resultType="kimch321.spring4.semiprojectv4.model.Zipcode">
+    select zipcode, sido, gugun, dong, ri, bunji from ZIPCODE where dong like #{dong}
+    </select>
+
+</mapper>
