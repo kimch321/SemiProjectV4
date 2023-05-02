@@ -46,6 +46,9 @@ const zipbtn = document.querySelector('#findzipbtn');
 const addrlist = document.querySelector('#addrlist');
 const sendzip = document.querySelector('#sendzip');
 const zipmodal = document.querySelector('#zipmodal');
+const zpmdbtn = document.querySelector('#zpmdbtn');
+const modal = new bootstrap.Modal(zipmodal,{});
+
 joinbtn?.addEventListener('click', ()=>{
     if (joinfrm.userid.value == '') alert('아이디를 입력하세요!!');
     else if (joinfrm.passwd.value == '') alert('비밀번호를 입력하세요!!');
@@ -62,6 +65,13 @@ joinbtn?.addEventListener('click', ()=>{
 
 });
 
+zpmdbtn?.addEventListener('click',() => {
+    while(addrlist.lastChild) {
+        addrlist.removeChild(addrlist.lastChild);
+    }
+    modal.show();
+});
+
 const showzipaddr = (jsons) => {
     let addrs = '';
     jsons.forEach((data, idx) => {
@@ -75,6 +85,10 @@ const showzipaddr = (jsons) => {
 };
 
 zipbtn?.addEventListener('click',() => {
+    if(dong.value === '') {
+        alert('동 이름을 입력하세요');
+        return;
+    }
     const url = '/join/zipcode?dong=' + dong.value;
     fetch(url).then(response => response.json())
         .then(jsons => showzipaddr(jsons));
@@ -95,8 +109,12 @@ sendzip?.addEventListener('click',() => {
         copyArrayAddr.shift();
         joinfrm.addr1.value = copyArrayAddr.join(' ');
 
-        bootstrap.Modal.getInstance(zipmodal).hide();
+        modal.hide();
     }
+
+
+
+
 })
 
 
