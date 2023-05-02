@@ -6,7 +6,13 @@
     <select id="findZipcode" statementType="PREPARED"
             parameterType="String"
             resultType="kimch321.spring4.semiprojectv4.model.Zipcode">
-    select zipcode, sido, gugun, dong, ri, bunji from ZIPCODE where dong like #{dong}
+        select zipcode, sido, gugun, dong, ri, bunji from ZIPCODE where dong like #{dong}
+    </select>
+
+    <select id="selectOneUid" statementType="PREPARED"
+            parameterType="String"
+            resultType="int">
+        select count(userid) cnt from member where userid like #{uid}
     </select>
 
 </mapper>
