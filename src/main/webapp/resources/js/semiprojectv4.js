@@ -44,6 +44,8 @@ const joinbtn = document.querySelector('#joinbtn');
 const dong = document.querySelector('#dong');
 const zipbtn = document.querySelector('#findzipbtn');
 const addrlist = document.querySelector('#addrlist');
+const sendzip = document.querySelector('#sendzip');
+const zipmodal = document.querySelector('#zipmodal');
 joinbtn?.addEventListener('click', ()=>{
     if (joinfrm.userid.value == '') alert('아이디를 입력하세요!!');
     else if (joinfrm.passwd.value == '') alert('비밀번호를 입력하세요!!');
@@ -62,7 +64,6 @@ joinbtn?.addEventListener('click', ()=>{
 
 const showzipaddr = (jsons) => {
     let addrs = '';
-
     jsons.forEach((data, idx) => {
         addrs += `<option>${data['zipcode']} ${data[`sido`]}
                      ${data['gugun']} ${data['dong']}</option>`
@@ -72,10 +73,30 @@ const showzipaddr = (jsons) => {
     }
     addrlist.innerHTML = addrs;
 };
+
 zipbtn?.addEventListener('click',() => {
     const url = '/join/zipcode?dong=' + dong.value;
     fetch(url).then(response => response.json())
         .then(jsons => showzipaddr(jsons));
+})
+
+sendzip?.addEventListener('click',() => {
+    let addr = addrlist.value;
+    if(addr === "") {
+        alert("주소를 선택해주세요");
+    } else {
+        let arrayAddr = addr.split(' ');
+
+        let zip = arrayAddr[0];
+        joinfrm.zip1.value = zip.split('-')[0];
+        joinfrm.zip2.value = zip.split('-')[1];
+
+        let copyArrayAddr = [...arrayAddr];
+        copyArrayAddr.shift();
+        joinfrm.addr1.value = copyArrayAddr.join(' ');
+
+        bootstrap.Modal.getInstance(zipmodal).hide();
+    }
 })
 
 
