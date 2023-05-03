@@ -1,5 +1,6 @@
 <%@ page pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <div id="main">
 
     <script src="https://www.google.com/recaptcha/api.js"></script>
@@ -223,7 +224,6 @@
 
         </form>
     </div>
-
 
 
     <!-- 우편변호 폼 모달-->
