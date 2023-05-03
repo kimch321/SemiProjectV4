@@ -268,3 +268,5 @@
 
     <script src="https://www.google.com/recaptcha/api.js"></script>
 </div>
+
+<script src="/assets/js/join.js"></script>
