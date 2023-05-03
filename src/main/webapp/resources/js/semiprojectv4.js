@@ -138,14 +138,28 @@ dong?.addEventListener('keydown', (e) => {
         e.preventDefault();
 })
 
+const styleCheckid = (chkuid) => {
+    let msg = "사용불가능한 아이디입니다";
+    uidmsg.style.color = 'red';
+
+    if(chkuid === '0') {
+        msg = "사용가능한 아이디입니다.";
+        uidmsg.style.color = 'blue';
+    }
+    uidmsg.innerText = msg;
+};
+
+
 userid?.addEventListener('blur', () => {
     if(userid.value === '') {
         alert('아이디를 입력하세요');
+        uidmsg.innerText = "6~16 자의 영문 소문자, 숫자와 특수기호(_)만 사용할 수 있습니다.";
+        uidmsg.style.color = '#6c757d';
         return;
     }
     const url = '/join/checkuid?uid=' + userid.value;
     fetch(url).then(response => response.text())
-        .then(text => alert(text));
+        .then(text => styleCheckid(text));
 })
 
 // -------------------------------joinok
