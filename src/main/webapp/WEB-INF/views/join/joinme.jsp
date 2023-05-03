@@ -82,7 +82,7 @@
                             <input type="password" name="passwd" id="passwd" class="form-control border-danger">
                         </div>
                         <div class="col-auto">
-                            <span class="form-text">6~16 자의 영문 소문자, 숫자와 특수기호(_)만 사용할 수 있습니다.</span>
+                            <span id="pwdmsg" class="form-text">6~16 자의 영문 소문자, 숫자와 특수기호(_)만 사용할 수 있습니다.</span>
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                             <input type="password" name="repasswd" id="repasswd" class="form-control border-danger">
                         </div>
                         <div class="col-auto">
-                            <span class="form-text">이전 항목에서 입력했던 비밀번호를 한번 더 입력하세요</span>
+                            <span id = "repwdmsg" class="form-text">이전 항목에서 입력했던 비밀번호를 한번 더 입력하세요</span>
                         </div>
                     </div>
                 </div>

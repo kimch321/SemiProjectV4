@@ -48,9 +48,14 @@ const sendzip = document.querySelector('#sendzip');
 const zipmodal = document.querySelector('#zipmodal');
 const zpmdbtn = document.querySelector('#zpmdbtn');
 const email3 = document.querySelector('#email3');
+
 const userid = document.querySelector('#userid');
+const passwd = document.querySelector('#passwd');
+const repasswd = document.querySelector('#repasswd');
+
 const uidmsg = document.querySelector('#uidmsg');
 const pwdmsg = document.querySelector('#pwdmsg');
+const repwdmsg = document.querySelector('#repwdmsg');
 
 const modal = new bootstrap.Modal(zipmodal,{});
 
@@ -69,7 +74,6 @@ joinbtn?.addEventListener('click', ()=>{
         joinfrm.action = '/join/joinok';
         joinfrm.submit();
     }
-
 });
 
 zpmdbtn?.addEventListener('click',() => {
@@ -138,6 +142,8 @@ dong?.addEventListener('keydown', (e) => {
         e.preventDefault();
 })
 
+const reg = /^[a-z0-9_]{6,16}$/
+
 const styleCheckid = (chkuid) => {
     let msg = "사용불가능한 아이디입니다";
     uidmsg.style.color = 'red';
@@ -148,7 +154,6 @@ const styleCheckid = (chkuid) => {
     }
     uidmsg.innerText = msg;
 };
-
 
 userid?.addEventListener('blur', () => {
     if(userid.value === '') {
@@ -161,5 +166,40 @@ userid?.addEventListener('blur', () => {
     fetch(url).then(response => response.text())
         .then(text => styleCheckid(text));
 })
+
+passwd?.addEventListener('blur', () => {
+    if(passwd.value === '') {
+        alert('비밀번호를 입력하세요');
+        pwdmsg.innerText = "6~16 자의 영문 소문자, 숫자와 특수기호(_)만 사용할 수 있습니다.";
+        pwdmsg.style.color = '#6c757d';
+    } else if (!reg.test(passwd.value)){
+        pwdmsg.innerText = "사용 불가능한 비밀번호입니다";
+        pwdmsg.style.color = 'red';
+    } else {
+        pwdmsg.innerText = "사용가능한 비밀번호입니다";
+        pwdmsg.style.color = 'blue';
+    }
+
+repasswd?.addEventListener('blur', () => {
+    let remsg = '비밀번호가 서로 일치하지 않습니다.'
+    repwdmsg.style.value = "red";
+
+    if( repasswd.value === passwd.value) {
+        remsg = "비밀번호가 일치합니다."
+        repwdmsg.style.value = "blue";
+    }
+    repwdmsg.value = remsg;
+})
+
+
+})
+
+
+
+
+
+
+
+
 
 // -------------------------------joinok
