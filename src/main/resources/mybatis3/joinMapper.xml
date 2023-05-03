@@ -12,7 +12,12 @@
     <select id="selectOneUid" statementType="PREPARED"
             parameterType="String"
             resultType="int">
-        select count(userid) cnt from member where userid like #{uid}
+        select count(userid) cnt from member2 where userid like #{uid}
     </select>
+
+    <insert id="insertMember" statementType="PREPARED"
+            parameterType="kimch321.spring4.semiprojectv4.model.Member">
+        insert into member2 (name, jumin1, jumin2, userid, passwd, zipcode, addr1, addr2, email, phone) VALUES (#{name}, #{jumin1}, #{jumin2}, #{userid}, #{passwd}, #{zipcode}, #{addr1}, #{addr2}, #{email}, #{phone})
+    </insert>
 
 </mapper>

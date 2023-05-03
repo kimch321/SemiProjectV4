@@ -36,12 +36,13 @@ public class joinController {
     }
 
     @PostMapping("/joinok")
-    public ModelAndView joinok(Member mb) {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("join/joinok.tiles");
-        mv.addObject("mb",mb);
+    public String joinok(Member mb, String grecaptcha) {
+        String view = "error.tiles";
 
-        return mv;
+        if(jnsrv.newMember(mb))
+            view = "join/joinok.tiles";
+
+        return view;
     }
 
     @GetMapping("/joinok")
