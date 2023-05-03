@@ -69,7 +69,12 @@ joinbtn?.addEventListener('click', ()=>{
     else if (joinfrm.email1.value == '' || joinfrm.email2.value == '') alert('이메일을 확인하세요!!');
     else if (joinfrm.tel2.value == '' || joinfrm.tel3.value == '') alert('전화번호를 확인하세요!!');
     else if (grecaptcha.getResponse() === '') alert('자동가입방지를 확인하세요!!');
+    else if (joinfrm.checkuid.value === 'no') alert('아이디 중복 체크하세요!');
     else {
+        joinfrm.zipcode.value = joinfrm.zip1.value + '-' + joinfrm.zip2.value;
+        joinfrm.email.value = joinfrm.email1.value + `@` + joinfrm.email2.value;
+        joinfrm.phone.value = joinfrm.tel1.value + `-` + joinfrm.tel2.value + `-` + joinfrm.tel3.value;
+
         joinfrm.method = 'post';
         joinfrm.action = '/join/joinok';
         joinfrm.submit();
@@ -147,10 +152,12 @@ const reg = /^[a-z0-9_]{6,16}$/
 const styleCheckid = (chkuid) => {
     let msg = "사용불가능한 아이디입니다";
     uidmsg.style.color = 'red';
+    joinfrm.checkuid.value = 'no';
 
     if(chkuid === '0') {
         msg = "사용가능한 아이디입니다.";
         uidmsg.style.color = 'blue';
+        joinfrm.checkuid.value = 'yes';
     }
     uidmsg.innerText = msg;
 };
@@ -160,6 +167,7 @@ userid?.addEventListener('blur', () => {
         alert('아이디를 입력하세요');
         uidmsg.innerText = "6~16 자의 영문 소문자, 숫자와 특수기호(_)만 사용할 수 있습니다.";
         uidmsg.style.color = '#6c757d';
+        joinfrm.checkuid.value = 'no';
         return;
     }
     const url = '/join/checkuid?uid=' + userid.value;
@@ -181,14 +189,16 @@ passwd?.addEventListener('blur', () => {
     }
 
 repasswd?.addEventListener('blur', () => {
-    let remsg = '비밀번호가 서로 일치하지 않습니다.'
-    repwdmsg.style.value = "red";
+    if(passwd.value !== '') {
+        let remsg = '잘못된 비밀번호입니다'
+        repwdmsg.style.color = "red";
 
-    if( repasswd.value === passwd.value) {
-        remsg = "비밀번호가 일치합니다."
-        repwdmsg.style.value = "blue";
+        if (repasswd.value === passwd.value && reg.test(passwd.value)) {
+            remsg = "비밀번호가 일치합니다"
+            repwdmsg.style.color = "blue";
+        }
+        repwdmsg.innerText = remsg;
     }
-    repwdmsg.value = remsg;
 })
 
 
