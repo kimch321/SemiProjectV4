@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+    <select id="selectList" statementType="PREPARED"
+            parameterType="int"
+            resultType="kimch321.spring4.semiprojectv4.model.Board">
+        select bno, title, userid, regdate, thumbs, views, content from board ORDER BY bno desc limit #{cbno}, 25;
+    </select>
+
+    <select id="selectListSubject" statementType="PREPARED"
+            parameterType="String"
+            resultType="kimch321.spring4.semiprojectv4.model.Board">
+        select bno, title, userid, regdate, thumbs, views, content from board where title like #{title} ORDER BY bno desc limit #{cbno}, 25;
+    </select>
+
+    <select id="selectListSbjcont" statementType="PREPARED"
+            parameterType="String"
+            resultType="kimch321.spring4.semiprojectv4.model.Board">
+        select bno, title, userid, regdate, thumbs, views, content from board where title like #{title} or content like #{content} ORDER BY bno desc limit #{cbno}, 25;
+    </select>
+
+    <select id="selectListContent" statementType="PREPARED"
+            parameterType="String"
+            resultType="kimch321.spring4.semiprojectv4.model.Board">
+        select bno, title, userid, regdate, thumbs, views, content from board where content like #{title} ORDER BY bno desc limit #{cbno}, 25;
+    </select>
+
+    <select id="selectListUserid" statementType="PREPARED"
+            parameterType="String"
+            resultType="kimch321.spring4.semiprojectv4.model.Board">
+        select bno, title, userid, regdate, thumbs, views, content from board where userid = #{userid} ORDER BY bno desc limit #{cbno}, 25;
+    </select>
+
+</mapper>

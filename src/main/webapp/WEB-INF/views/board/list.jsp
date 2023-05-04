@@ -12,7 +12,7 @@
                     <select class = "form-select" id="findtype">
                         <option value="subject">제목</option>
                         <option value="sbjcont">제목+내용</option>
-                        <option value="contents">내용</option>
+                        <option value="content">내용</option>
                         <option value="userid">작성자</option>
                     </select>
                 </div>
