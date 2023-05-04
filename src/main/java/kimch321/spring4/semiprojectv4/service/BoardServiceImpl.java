@@ -40,4 +40,9 @@ public class BoardServiceImpl implements BoardService{
     public List<Board> useridList() {
         return null;
     }
+
+    @Override
+    public int countBoard() {
+        return bddao.countBoard();
+    }
 }

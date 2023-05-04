@@ -32,4 +32,9 @@
         select bno, title, userid, regdate, thumbs, views, content from board where userid = #{userid} ORDER BY bno desc limit #{cbno}, 25;
     </select>
 
+    <select id="countBoard" statementType="PREPARED"
+            resultType="int">
+        select ceil(count(bno)/25) cnt from board;
+    </select>
+
 </mapper>

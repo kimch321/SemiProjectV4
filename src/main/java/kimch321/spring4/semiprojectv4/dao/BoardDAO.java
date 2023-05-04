@@ -6,5 +6,7 @@ import java.util.List;
 
 public interface BoardDAO {
 
-    public List<Board> selectBoard(int strbno);
+    List<Board> selectBoard(int strbno);
+
+    int countBoard();
 }

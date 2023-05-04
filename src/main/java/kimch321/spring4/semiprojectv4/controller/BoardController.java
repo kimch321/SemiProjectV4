@@ -24,6 +24,9 @@ public class BoardController {
 
         mv.addObject("bdlist", bdsrv.readBoard(cpg));
         mv.addObject("cpg",cpg);
+        mv.addObject("stpg",((cpg-1)/10)*10 + 1);
+        mv.addObject("cntpg",bdsrv.countBoard());
+
         mv.setViewName("board/list.tiles");
         return mv;
     }

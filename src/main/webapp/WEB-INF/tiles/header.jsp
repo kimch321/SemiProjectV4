@@ -30,8 +30,8 @@
     <li class="nav-item"><a href="/intro" class="nav-link text-light">프로젝트소개</a></li>
     <li class="nav-item"><a href="/join/agree" class="nav-link text-light">회원가입</a></li>
     <li class="nav-item"><a href="/board/list?cpg=1" class="nav-link text-light">게시판</a></li>
-    <li class="nav-item"><a href="/pds/list" class="nav-link text-light">자료실</a></li>
-    <li class="nav-item"><a href="/gallery/list" class="nav-link text-light">게시판</a></li>
+    <li class="nav-item"><a href="/pds/list?cpg=1" class="nav-link text-light">자료실</a></li>
+    <li class="nav-item"><a href="/gallery/list?cpg=1" class="nav-link text-light">게시판</a></li>
     <li class="nav-item"><a href="/admin" class="nav-link text-light">관리자</a></li>
   </ul>
 </nav>
