@@ -2,7 +2,7 @@
 
 <div id="main">
   <div class="mt-5">
-    <i class="fa-solid fa-screwdriver-wrench"> 관리자 </i>
+    <i class="fa-solid fa-screwdriver-wrench fa-2xl"> 관리자 </i>
     <hr>
   </div>
 

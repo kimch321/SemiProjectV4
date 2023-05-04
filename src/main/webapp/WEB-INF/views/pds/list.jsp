@@ -1,7 +1,7 @@
 <%@ page pageEncoding="utf-8" %>
 <div id="main">
     <div class="mt-5">
-        <i class="fa-solid fa-download"> 자료실 </i>
+        <i class="fa-solid fa-download fa-2xl"> 자료실 </i>
         <hr>
     </div>
 

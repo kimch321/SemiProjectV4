@@ -1,7 +1,7 @@
 <%@ page pageEncoding="utf-8" %>
 <div id="main">
     <div class="mt-5">
-        <i class="fa-light fa-pen-to-square"> 겔러리 </i>
+        <i class="fa-solid fa-image fa-2xl"> 겔러리 </i>
         <hr>
     </div>
 
