@@ -4,6 +4,7 @@ package kimch321.spring4.semiprojectv4.model;
 public class Board {
     private String bno;
     private String title;
+    private String userid;
     private String thumbs;
     private String views;
     private String content;
@@ -12,9 +13,10 @@ public class Board {
     public Board(){
     }
 
-    public Board(String bno, String title, String thumbs, String views, String content, String regdate) {
+    public Board(String bno, String title,String userid, String thumbs, String views, String content, String regdate) {
         this.bno = bno;
         this.title = title;
+        this.userid = userid;
         this.thumbs = thumbs;
         this.views = views;
         this.content = content;
@@ -35,6 +37,14 @@ public class Board {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
 
     public String getThumbs() {

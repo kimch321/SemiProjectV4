@@ -18,6 +18,8 @@ public class BoardDAOTest {
     @Autowired
     SqlSession sqlSession;
 
+
+
     @Test
     public void selectBoard() {
         assertEquals(25,sqlSession.selectList("board.selectList",0).size());

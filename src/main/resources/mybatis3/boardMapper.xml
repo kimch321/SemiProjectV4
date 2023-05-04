@@ -5,7 +5,7 @@
     <select id="selectList" statementType="PREPARED"
             parameterType="int"
             resultType="kimch321.spring4.semiprojectv4.model.Board">
-        select bno, title, userid, regdate, thumbs, views, content from board ORDER BY bno desc limit #{cbno}, 25;
+        select bno, title, userid, regdate, thumbs, views, content from board ORDER BY bno desc limit #{strbno}, 25;
     </select>
 
     <select id="selectListSubject" statementType="PREPARED"

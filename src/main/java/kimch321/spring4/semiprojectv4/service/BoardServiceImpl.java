@@ -15,8 +15,10 @@ public class BoardServiceImpl implements BoardService{
     BoardDAO bddao;
 
     @Override
-    public List<Board> readBoard() {
-        return bddao.selectBoard();
+    public List<Board> readBoard(int cpage) {
+        // 1 페이지라면 limit 0,25 2 페이지라면 limit 25,25...
+        int stbno = (cpage - 1) * 25;
+        return bddao.selectBoard(stbno);
     }
 
     @Override
